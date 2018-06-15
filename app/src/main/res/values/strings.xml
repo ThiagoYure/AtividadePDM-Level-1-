@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Atividade1</string>
+    <string name="cep">Cep</string>
+    <string name="estado">Estado</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="cidade">Cidade</string>
+    <string name="Bairro">bairro</string>
+    <string name="complemento">Complemento</string>
+    <string name="Button">Consultar</string>
+</resources>
