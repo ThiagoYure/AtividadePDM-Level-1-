@@ -25,16 +25,12 @@ public class ServiceCep extends Service{
         Thread thread = new Thread() {
             @Override
             public void run() {
-                try {
-                    URL url = new URL("https://viacep.com.br/ws/"+intent.getCharSequenceExtra("cep")+"/json");;
-                    String stringJson = handlerJson.getStringJson(url);
-                    Intent intentEnvio = new Intent();
-                    intentEnvio.putExtra("json", stringJson);
-                    intentEnvio.setAction(action);
-                    sendBroadcast(intentEnvio);
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
+                String url = "https://viacep.com.br/ws/"+intent.getCharSequenceExtra("cep")+"/json";
+                String stringJson = handlerJson.getStringJson(url);
+                Intent intentEnvio = new Intent();
+                intentEnvio.putExtra("json", stringJson);
+                intentEnvio.setAction(action);
+                sendBroadcast(intentEnvio);
                 stopSelf();
             }
         };

@@ -8,11 +8,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 class HandlerJson {
-    public String getStringJson(URL url){
+    public String getStringJson(String url){
         String retorno = "";
         try {
             int resposta;
-            HttpURLConnection conection = (HttpURLConnection) url.openConnection();
+            URL urlNova = new URL(url);
+            HttpURLConnection conection = (HttpURLConnection) urlNova.openConnection();
             conection.setRequestMethod("GET");
             conection.connect();
             resposta = conection.getResponseCode();
@@ -37,8 +38,7 @@ class HandlerJson {
         try{
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String linhaJson;
-            linhaJson = bufferedReader.readLine();
-            while(linhaJson != null) {
+            while( (linhaJson = bufferedReader.readLine()) != null) {
                 stringBuffer.append(linhaJson);
             }
             bufferedReader.close();
